@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <body class="bg-warning text-white fw-bold">
     <header>
       <!-- place navbar here -->
     </header>
@@ -27,9 +27,7 @@
       <div class="container">
         <!-- Instructions -->
         <div class="row text-center">
-          <div class="col-12 display-4">
-            Fantasy Name Generator
-          </div>
+          <div class="col-12 display-3 fw-bolder">Fantasy Name Generator</div>
         </div>
         <div class="row text-center mt-2 mb-4">
           <div class="col-12 fs-5">
@@ -41,12 +39,22 @@
           <!-- Get First Name -->
           <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name">
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder="Enter your first name"
+            />
           </div>
           <!-- Get Last Name -->
           <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name">
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              placeholder="Enter your last name"
+            />
           </div>
           <!-- Get Road Type -->
           <div class="mb-3">
@@ -61,15 +69,29 @@
           <!-- Get Favorite Color -->
           <div class="mb-3">
             <label for="favoriteColor" class="form-label">Favorite Color</label>
-            <input type="text" class="form-control" id="favColor" placeholder="Enter your favorite color">
+            <input
+              type="text"
+              class="form-control"
+              id="favColor"
+              placeholder="Enter your favorite color"
+            />
           </div>
           <!-- Get Favorite Animal -->
           <div class="mb-3">
-            <label for="favoriteAnimal" class="form-label">Favorite Animal</label>
-            <input type="text" class="form-control" id="favAnimal" placeholder="Enter your favorite animal">
+            <label for="favoriteAnimal" class="form-label"
+              >Favorite Animal</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="favAnimal"
+              placeholder="Enter your favorite animal"
+            />
           </div>
           <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary w-100">Generate Name</button>
+          <button type="submit" onclick="genFullName()" class="btn btn-light text-dark w-100">
+            Generate Name
+          </button>
         </form>
         <!-- Generated Name Output -->
         <div class="result" id="result"></div>
