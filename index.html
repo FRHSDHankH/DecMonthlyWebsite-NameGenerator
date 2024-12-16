@@ -24,77 +24,83 @@
       <!-- place navbar here -->
     </header>
     <main>
-      <div class="container">
-        <!-- Instructions -->
-        <div class="row text-center">
-          <div class="col-12 display-3 fw-bolder">Fantasy Name Generator</div>
+      <div class="container-fluid size d-flex align-items-center justify-content-center">
+        <div class="container d-block">
+          <!-- Instructions -->
+          <div class="row text-center">
+            <div class="col-12 display-3 fw-bolder">Fantasy Name Generator</div>
+          </div>
+          <div class="row text-center mt-2 mb-4">
+            <div class="col-12 fs-5">
+              Fill out the form below to generate your fantasy name!
+            </div>
+          </div>
+          <!-- Form Section -->
+          <form class="mb-4" id="fantasyForm">
+            <!-- Get First Name -->
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="Enter your first name"
+                required
+              />
+            </div>
+            <!-- Get Last Name -->
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Enter your last name"
+                required
+              />
+            </div>
+            <!-- Get Road Type -->
+            <div class="mb-3">
+              <label for="roadType" class="form-label">Choose Road Type</label>
+              <select id="roadType" class="form-select">
+                <option value="road">Road</option>
+                <option value="street">Street</option>
+                <option value="avenue">Avenue</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <!-- Get Favorite Color -->
+            <div class="mb-3">
+              <label for="favoriteColor" class="form-label">Favorite Color</label>
+              <input
+                type="text"
+                class="form-control"
+                id="favoriteColor"
+                placeholder="Enter your favorite color"
+                required
+              />
+            </div>
+            <!-- Get Favorite Animal -->
+            <div class="mb-3">
+              <label for="favoriteAnimal" class="form-label"
+                >Favorite Animal</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="favoriteAnimal"
+                placeholder="Enter your favorite animal"
+                required
+              />
+            </div>
+            <!-- Submit Button -->
+            <div type="submit" onclick="genFullName()" class="btn btn-light text-dark w-100 my-3">
+              Generate Name
+            </div>
+          </form>
+          <!-- Generated Name Output -->
+          <div class="display-5 text-center" id="result"></div>
         </div>
-        <div class="row text-center mt-2 mb-4">
-          <div class="col-12 fs-5">
-            Fill out the form below to generate your fantasy name!
-          </div>
-        </div>
-        <!-- Form Section -->
-        <form class="mb-4" id="fantasyForm">
-          <!-- Get First Name -->
-          <div class="mb-3">
-            <label for="firstName" class="form-label">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              placeholder="Enter your first name"
-            />
-          </div>
-          <!-- Get Last Name -->
-          <div class="mb-3">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="lastName"
-              placeholder="Enter your last name"
-            />
-          </div>
-          <!-- Get Road Type -->
-          <div class="mb-3">
-            <label for="roadType" class="form-label">Choose Road Type</label>
-            <select id="roadType" class="form-select">
-              <option value="road">Road</option>
-              <option value="street">Street</option>
-              <option value="avenue">Avenue</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <!-- Get Favorite Color -->
-          <div class="mb-3">
-            <label for="favoriteColor" class="form-label">Favorite Color</label>
-            <input
-              type="text"
-              class="form-control"
-              id="favColor"
-              placeholder="Enter your favorite color"
-            />
-          </div>
-          <!-- Get Favorite Animal -->
-          <div class="mb-3">
-            <label for="favoriteAnimal" class="form-label"
-              >Favorite Animal</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="favAnimal"
-              placeholder="Enter your favorite animal"
-            />
-          </div>
-          <!-- Submit Button -->
-          <button type="submit" onclick="genFullName()" class="btn btn-light text-dark w-100">
-            Generate Name
-          </button>
-        </form>
-        <!-- Generated Name Output -->
-        <div class="result" id="result"></div>
       </div>
     </main>
     <footer>

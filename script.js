@@ -1,21 +1,24 @@
 // Generate prefix
 function genPrefix(firstName) {
   if (firstName.length > 5) {
-    return "The Great";
+    return "Mr.";
   } else {
-    return "Master";
+    return "Doctor";
   }
 }
 
 //Generate first name
 function genFirstName(firstName) {
   const firstLetter = firstName.charAt(0).toLowerCase();
-  if (firstLetter === "a") {
-    return "Jeff";
-  } else if (firstLetter === "b") {
-    return "Pablo";
-  } else {
-    return "Taquavion";
+  switch (firstLetter){
+    case 'a':
+      return 'Jeff'
+      break;
+    case 'b':
+      return 'Pablo'
+      break;
+    default:
+      return 'Taquavion'
   }
 }
 
@@ -28,25 +31,28 @@ function genMiddleName(roadType, favoriteColor) {
   } else if(roadType === 'avenue') {
     return `${favoriteColor}son`
   } else {
-    return `${favoriteColor}moon`
+    return `Martinez`
   }
 }
 
 //Generate last name
 function genLastName(lastName) {
   const lastLetter = lastName.charAt(lastName.length-1)
+  const firstLetter = lastName.charAt(0).toLowerCase()
   if (lastLetter === 'a') {
     return 'Shadow'
-  } else if(lastLetter === 'e') {
+  } else if(lastLetter === 'e' || lastLetter === 'r') {
     return 'Storm'
-  } else if(lastLetter === 'i') {
+  } else if(lastLetter === 'i' || lastLetter === 't') {
     return 'Blaze'
-  } else if(lastLetter === 'o') {
+  } else if(lastLetter === 'o' || lastLetter === 'p') {
     return 'Thorn'
-  } else if(lastLetter === 'u') {
+  } else if(lastLetter === 'u' || lastLetter === 'n') {
     return 'Frost'
+  } else if(lastLetter === 'y' && firstLetter === 'h') {
+    return 'the 3rd Jr.'
   } else {
-    return 'Moon'
+    return 'Skibidi'
   }
 }
 
@@ -75,12 +81,12 @@ function genFullName() {
   const capitalizedPrefix = capitalize(prefix)
   const capitalizedFirstName = capitalize(newFirstName)
   const capitalizedMiddleName = capitalize(middleName)
-  const capitalizedLastName = capitalize(newLastName)
 
-  //Combine all of them name variables into a full new name
-
+  //Combine all of the name variables into a full new name
+  const fullName = `${capitalizedPrefix} ${capitalizedFirstName} ${capitalizedMiddleName} ${newLastName} ${suffix}`
+  
   //Display the new name
-
+  document.getElementById('result').textContent = fullName
 }
 
 //Capitalization Function
