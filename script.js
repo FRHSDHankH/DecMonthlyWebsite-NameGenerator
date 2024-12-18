@@ -1,95 +1,97 @@
 // Generate prefix
 function genPrefix(firstName) {
-  if (firstName.length > 5) {
-    return "Mr.";
+  if (firstName.length > 5 && firstName.charAt(0).toLowerCase() === 'k') {
+    return "King Minion";
+  } else if (firstName.length > 5 || firstName.charAt(0).toLowerCase() === 's') {
+    return "Boss Minion";
   } else {
-    return "Doctor";
+    return "Minion";
   }
 }
 
-//Generate first name
+// Generate first name
 function genFirstName(firstName) {
   const firstLetter = firstName.charAt(0).toLowerCase();
-  switch (firstLetter){
-    case 'a':
-      return 'Jeff'
-      break;
-    case 'b':
-      return 'Pablo'
-      break;
-    default:
-      return 'Taquavion'
+  if (firstLetter === 'a' || firstLetter === 'e') {
+    return 'Kevin';
+  } else if (firstLetter === 'b' && firstName.length < 5) {
+    return 'Bob';
+  } else if (firstLetter === 's' && firstName.includes('u')) {
+    return 'Stuart';
+  } else {
+    return 'Dave';
   }
 }
 
-//Generate middle name
+// Generate middle name
 function genMiddleName(roadType, favoriteColor) {
-  if(roadType === 'road') {
-    return `${favoriteColor}ridge`
-  } else if(roadType === 'street') {
-    return `${favoriteColor}stone`
-  } else if(roadType === 'avenue') {
-    return `${favoriteColor}son`
+  if (roadType === 'road' && favoriteColor.toLowerCase() === 'yellow') {
+    return 'BananaKing';
+  } else if (roadType === 'street' || roadType === 'lane') {
+    return `${favoriteColor}bloop`;
+  } else if (roadType === 'avenue' && favoriteColor.length > 3) {
+    return `${favoriteColor}boing`;
   } else {
-    return `Martinez`
+    return `Beedo`;
   }
 }
 
-//Generate last name
+// Generate last name
 function genLastName(lastName) {
-  const lastLetter = lastName.charAt(lastName.length-1)
-  const firstLetter = lastName.charAt(0).toLowerCase()
-  if (lastLetter === 'a') {
-    return 'Shadow'
-  } else if(lastLetter === 'e' || lastLetter === 'r') {
-    return 'Storm'
-  } else if(lastLetter === 'i' || lastLetter === 't') {
-    return 'Blaze'
-  } else if(lastLetter === 'o' || lastLetter === 'p') {
-    return 'Thorn'
-  } else if(lastLetter === 'u' || lastLetter === 'n') {
-    return 'Frost'
-  } else if(lastLetter === 'y' && firstLetter === 'h') {
-    return 'the 3rd Jr.'
+  const lastLetter = lastName.charAt(lastName.length - 1).toLowerCase();
+  const firstLetter = lastName.charAt(0).toLowerCase();
+
+  if ((lastLetter === 'a' || lastLetter === 'e') && firstLetter === 'b') {
+    return 'Doo';
+  } else if ((lastLetter === 'i' || lastLetter === 'o') && firstLetter !== 'z') {
+    return 'Baba';
+  } else if (lastLetter === 'u' || lastLetter === 'n') {
+    return 'Fluffy';
   } else {
-    return 'Skibidi'
+    return 'Banana';
   }
 }
 
-//Generate suffix
+// Generate suffix
 function genSuffix(favoriteAnimal) {
-  return `of the ${favoriteAnimal} clan.`
+  if (favoriteAnimal.toLowerCase() === 'dog' || favoriteAnimal.toLowerCase() === 'cat') {
+    return `of the Loyal ${favoriteAnimal} Clan.`;
+  } else if (favoriteAnimal.length > 3 && favoriteAnimal.toLowerCase() !== 'snake') {
+    return `of the Mighty ${favoriteAnimal} Tribe.`;
+  } else {
+    return `of the Banana Gang.`;
+  }
 }
 
-//Master Name Building Function
+// Master Name Building Function
 function genFullName() {
-  //Get the Users Inputs from HTML Elements
-  const firstName = document.getElementById('firstName').value.trim()
-  const lastName = document.getElementById('lastName').value.trim()
-  const roadType = document.getElementById('roadType').value
-  const favoriteColor = document.getElementById('favoriteColor').value.trim()
-  const favoriteAnimal = document.getElementById('favoriteAnimal').value.trim()
+  // Get the User's Inputs from HTML Elements
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const roadType = document.getElementById('roadType').value;
+  const favoriteColor = document.getElementById('favoriteColor').value.trim();
+  const favoriteAnimal = document.getElementById('favoriteAnimal').value.trim();
 
-  //Run Name Generating Functions & store them in new variables
-  const prefix = genPrefix(firstName)
-  const newFirstName = genFirstName(firstName)
-  const middleName = genMiddleName(roadType, favoriteColor)
-  const newLastName = genLastName(lastName)
-  const suffix = genSuffix(favoriteAnimal)
+  // Run Name Generating Functions & store them in new variables
+  const prefix = genPrefix(firstName);
+  const newFirstName = genFirstName(firstName);
+  const middleName = genMiddleName(roadType, favoriteColor);
+  const newLastName = genLastName(lastName);
+  const suffix = genSuffix(favoriteAnimal);
 
-  //Capitalize Name Variables when needed
-  const capitalizedPrefix = capitalize(prefix)
-  const capitalizedFirstName = capitalize(newFirstName)
-  const capitalizedMiddleName = capitalize(middleName)
+  // Capitalize Name Variables when needed
+  const capitalizedPrefix = capitalize(prefix);
+  const capitalizedFirstName = capitalize(newFirstName);
+  const capitalizedMiddleName = capitalize(middleName);
 
-  //Combine all of the name variables into a full new name
-  const fullName = `${capitalizedPrefix} ${capitalizedFirstName} ${capitalizedMiddleName} ${newLastName} ${suffix}`
+  // Combine all of the name variables into a full new name
+  const fullName = `${capitalizedPrefix} ${capitalizedFirstName} ${capitalizedMiddleName} ${newLastName} ${suffix}`;
   
-  //Display the new name
-  document.getElementById('result').textContent = fullName
+  // Display the new name
+  document.getElementById('result').textContent = fullName;
 }
 
-//Capitalization Function
+// Capitalization Function
 function capitalize(input) {
-  return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase()
+  return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
 }
